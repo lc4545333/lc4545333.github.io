@@ -3,119 +3,491 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cybersecurity Portfolio - Your Name</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Cybersecurity Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0a192f;
+            --secondary-color: #64ffda;
+            --text-color: #8892b0;
+            --heading-color: #ccd6f6;
+            --background-color: #0a192f;
+            --card-background: #112240;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
+            line-height: 1.6;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--heading-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+        }
+
+        .hero h1 {
+            color: var(--secondary-color);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero h2 {
+            color: var(--heading-color);
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero h3 {
+            color: var(--text-color);
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero p {
+            max-width: 540px;
+            margin-bottom: 2rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            color: var(--heading-color);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            height: 1px;
+            width: 300px;
+            background-color: var(--text-color);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background-color: var(--card-background);
+            padding: 1.5rem;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background-color: var(--secondary-color);
+        }
+
+        .skill-card h3 {
+            color: var(--heading-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--card-background);
+            border-radius: 4px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            color: var(--heading-color);
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-tech span {
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+        }
+
+        /* Certifications Section */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-card {
+            background-color: var(--card-background);
+            padding: 1.5rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .cert-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--card-background);
+            border: 2px solid var(--secondary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .right::after {
+            left: -10px;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .contact h2 {
+            color: var(--heading-color);
+            margin-bottom: 2rem;
+        }
+
+        .contact p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border: 1px solid var(--secondary-color);
+            border-radius: 4px;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 3rem;
+            }
+
+            .hero h3 {
+                font-size: 2rem;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 21px;
+            }
+
+            .right {
+                left: 0;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <h1>Your Name</h1>
-            <p>Aspiring Cybersecurity Professional</p>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">SP</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#contact">Contact</a>
+            </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#skills">Technical Skills</a></li>
-                <li><a href="#certifications">Certifications and Training</a></li>
-                <li><a href="#projects">Project Experience</a></li>
-                <li><a href="#learning">Learning Journey</a></li>
-                <li><a href="#career">Career Objective</a></li>
-                <li><a href="#contact">Contact Information</a></li>
-            </ul>
-        </nav>
-    </header>
+    </nav>
 
-    <main>
-        <section id="about">
-            <div class="section-header">
-                <h2>About Me</h2>
+    <section class="hero" id="about">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hi, my name is</h1>
+                <h2>Security Professional.</h2>
+                <h3>I secure the digital realm.</h3>
+                <p>I'm a cybersecurity specialist focusing on network security, penetration testing, and security architecture. Currently, I'm working on enhancing organization's security posture through comprehensive security assessments and implementing robust security measures.</p>
+                <a href="#contact" class="btn">Get In Touch</a>
             </div>
-            <div class="about-content">
-                <img src="profile-pic.jpg" alt="Profile Picture">
-                <p>Brief introduction about yourself, your current role, and your interest in cybersecurity. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna a bibendum bibendum, augue magna tincidunt enim, eget ultricies magna augue eget est. Maecenas ut felis metus.</p>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="skills">
-            <div class="section-header">
-                <h2>Technical Skills</h2>
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3><i class="fas fa-shield-alt"></i> Offensive Security</h3>
+                    <ul>
+                        <li>Penetration Testing</li>
+                        <li>Vulnerability Assessment</li>
+                        <li>Web Application Security</li>
+                        <li>Network Security</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>Bash Scripting</li>
+                        <li>PowerShell</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
+                    <ul>
+                        <li>Metasploit</li>
+                        <li>Burp Suite</li>
+                        <li>Wireshark</li>
+                        <li>Nmap</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-server"></i> Infrastructure</h3>
+                    <ul>
+                        <li>Linux Administration</li>
+                        <li>Windows Server</li>
+                        <li>Cloud Security (AWS/Azure)</li>
+                        <li>Firewalls & IDS/IPS</li>
+                    </ul>
+                </div>
             </div>
-            <div class="skills-content">
-                <ul>
-                    <li><i class="fas fa-check"></i> Skill 1</li>
-                    <li><i class="fas fa-check"></i> Skill 2</li>
-                    <li><i class="fas fa-check"></i> Skill 3</li>
-                    <!-- Add more skills as needed -->
-                </ul>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="certifications">
-            <div class="section-header">
-                <h2>Certifications and Training</h2>
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Network Security Assessment</h3>
+                    <p>Comprehensive network vulnerability assessment including penetration testing and security audit.</p>
+                    <div class="project-tech">
+                        <span>Nmap</span>
+                        <span>Metasploit</span>
+                        <span>Wireshark</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Security Monitoring System</h3>
+                    <p>Implemented SIEM solution for real-time security monitoring and incident response.</p>
+                    <div class="project-tech">
+                        <span>ELK Stack</span>
+                        <span>Python</span>
+                        <span>Snort IDS</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Web Application Firewall</h3>
+                    <p>Developed custom WAF rules and implemented security controls for web applications.</p>
+                    <div class="project-tech">
+                        <span>ModSecurity</span>
+                        <span>Nginx</span>
+                        <span>Regular Expressions</span>
+                    </div>
+                </div>
             </div>
-            <div class="certifications-content">
-                <ul>
-                    <li><i class="fas fa-certificate"></i> Certification 1</li>
-                    <li><i class="fas fa-certificate"></i> Certification 2</li>
-                    <li><i class="fas fa-certificate"></i> Training 1</li>
-                    <!-- Add more certifications and training as needed -->
-                </ul>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="projects">
-            <div class="section-header">
-                <h2>Project Experience</h2>
+    <section id="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <i class="fas fa-certificate cert-icon"></i>
+                    <div>
+                        <h3>CompTIA Security+</h3>
+                        <p>Expected Completion: 2024</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-award cert-icon"></i>
+                    <div>
+                        <h3>Ethical Hacking Fundamentals</h3>
+                        <p>Completed: 2023</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-shield-alt cert-icon"></i>
+                    <div>
+                        <h3>Network Security Specialist</h3>
+                        <p>Completed: 2023</p>
+                    </div>
+                </div>
             </div>
-            <div class="projects-content">
-                <article>
-                    <h3>Project 1</h3>
-                    <p>Project objectives, tools used, methodologies, and outcomes. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna a bibendum bibendum, augue magna tincidunt enim, eget ultricies magna augue eget est.</p>
-                </article>
-                <article>
-                    <h3>Project 2</h3>
-                    <p>Project objectives, tools used, methodologies, and outcomes. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna a bibendum bibendum, augue magna tincidunt enim, eget ultricies magna augue eget est.</p>
-                </article>
-                <!-- Add more projects as needed -->
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="learning">
-            <div class="section-header">
-                <h2>Learning Journey</h2>
-            </div>
-            <div class="learning-content">
-                <p>Reflect on what you've learned so far in the course and your progress in cybersecurity. Include topics, tools, or concepts that are still challenging for you and how you plan to improve. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna a bibendum bibendum, augue magna tincidunt enim, eget ultricies magna augue eget est.</p>
-            </div>
-        </section>
-
-        <section id="career">
-            <div class="section-header">
-                <h2>Career Objective</h2>
-            </div>
-            <div class="career-content">
-                <p>State your professional aspirations in cybersecurity. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna a bibendum bibendum, augue magna tincidunt enim, eget ultricies magna augue eget est.</p>
-            </div>
-        </section>
-
-        <section id="contact">
-            <div class="section-header">
-                <h2>Contact Information</h2>
-            </div>
-            <div class="contact-content">
-                <ul>
-                    <li><i class="fas fa-envelope"></i> Email: your-email@example.com</li>
-                    <li><i class="fab fa-linkedin"></i> LinkedIn: linkedin.com/your-profile</li>
-                    <li><i class="fab fa-github"></i> GitHub: github.com/your-username</li>
-                </ul>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2023 Your Name. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+    <section id="learning">
+        <div class="container">
+            <h2 class="section-title">Learning Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="content
