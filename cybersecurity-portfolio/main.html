@@ -1,1 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网络安全作品集</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f0f2f5;
+        }
+
+        header {
+            background: #2b3945;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        nav {
+            background: #3d4f5d;
+            padding: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            background: white;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .project-card {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-card {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+        }
+
+        footer {
+            background: #2b3945;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>网络安全作品集</h1>
+        <p>专注于网络安全的学习与实践</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">关于我</a></li>
+            <li><a href="#skills">技能</a></li>
+            <li><a href="#projects">项目</a></li>
+            <li><a href="#certifications">证书</a></li>
+            <li><a href="#contact">联系我</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="about" class="section">
+            <h2>关于我</h2>
+            <p>我是一名网络安全爱好者，正在积极学习和实践各种安全技术。我的目标是成为一名优秀的安全工程师。</p>
+        </section>
+
+        <section id="skills" class="section">
+            <h2>技能</h2>
+            <div class="skills">
+                <div class="skill-card">
+                    <h3>网络安全基础</h3>
+                    <ul>
+                        <li>网络协议分析</li>
+                        <li>安全架构设计</li>
+                        <li>风险评估</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>安全工具使用</h3>
+                    <ul>
+                        <li>Wireshark</li>
+                        <li>Nmap</li>
+                        <li>Metasploit</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>安全开发</h3>
+                    <ul>
+                        <li>安全编码</li>
+                        <li>漏洞修复</li>
+                        <li>安全测试</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <h2>项目展示</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <h3>网络安全评估项目</h3>
+                    <p>使用多种工具进行网络安全评估，发现并报告潜在安全风险。</p>
+                </div>
+                <div class="project-card">
+                    <h3>安全防护方案</h3>
+                    <p>设计并实施网络安全防护方案，提高系统安全性。</p>
+                </div>
+                <div class="project-card">
+                    <h3>安全意识培训</h3>
+                    <p>开发安全意识培训材料，提高团队安全意识。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="section">
+            <h2>证书与认证</h2>
+            <ul>
+                <li>网络安全基础证书</li>
+                <li>安全工具使用认证</li>
+                <li>安全开发实践证书</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="section">
+            <h2>联系方式</h2>
+            <p>Email: your.email@example.com</p>
+            <p>GitHub: your-github-username</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2024 网络安全作品集. All rights reserved.</p>
+    </footer>
+</body>
+</html>
